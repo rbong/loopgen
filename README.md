@@ -2,6 +2,9 @@
 Tool for creating ordered graphviz circo loops.
 Generates a plain graphviz circo loop then hardcodes it and adds to it.
 
+# requirements
+graphviz, sed, awk, bash, coreutils
+
 # usage
 loopgen.sh input > output.dot
 
