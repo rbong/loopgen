@@ -20,7 +20,6 @@ graph with node0 to nodex
 input file
 ```
 6
-layout=circo;
 node0 [label="bop it"];
 node1 [label="twist it"];
 node2 [label="pull it"];
