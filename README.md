@@ -39,4 +39,4 @@ loopgen.sh input | neato -Tpng > output.png
 output
 ![fullscreen-mode](https://raw.github.com/rbong/loopgen/master/img/screen1.png)
 normally, this would result in
-![fullscreen-mode](https://raw.github.com/rbong/loopgen/master/img/screen1.png)
+![fullscreen-mode](https://raw.github.com/rbong/loopgen/master/img/screen2.png)
