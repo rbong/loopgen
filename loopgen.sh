@@ -1,16 +1,5 @@
 #!/bin/bash
-# loopgen.sh- generates a plain graphviz loop then hardcodes it and adds to it
-#
-# usage-
-# loopgen.sh input > output.dot
-#
-# input file format-
-#   x num of nodes
-#   prefixes for the generated file (format information, labels)
-#   (blank)
-#   postfixes for the final file (extra connections, inputscale)
-#
-# output - graph with node0 to nodex
+# grab the file text
 file=$(<$1)
 # trim filename to function name
 fun=${1##*/}
