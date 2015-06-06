@@ -36,7 +36,7 @@ done
 gen="$gen -> node0;
 }"
 # generate, replace circo layout reference, make positions absolute
-gen=$(printf "$gen" | circo |
+gen=$(printf "$gen" | dot |
 sed -e 's/layout=circo/layout=neato/' -e 's/\(pos=".*\)"/\1!"/g')
 # remove trailing brace
 gen=$(printf "$gen" | head -n -1)
