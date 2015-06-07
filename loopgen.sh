@@ -40,9 +40,9 @@ gen=$(printf "$gen" | dot |
 sed -e 's/layout=circo/layout=neato/' -e 's/\(pos=".*\)"/\1!"/g')
 # remove trailing brace
 gen=$(printf "$gen" | head -n -1)
-post="/* generated with loopgen.sh */
+fin="/* generated with loopgen.sh */
     $gen
     $file
 }"
 
-printf "$post"
+printf "$fin"
