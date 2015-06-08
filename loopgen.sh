@@ -20,20 +20,29 @@ fi
 file=$(tail -n +2 <<< "$file")
 # add all lines up to the first blank line
 gen="$gen
-    $(printf "$file" | awk '!p;/^$/{p=1}')"
+    $(printf "$file" | awk '!p;/^$/{p=1}')
+    "
 # remove all lines before the first blank line
 file=$(printf "$file" | awk '/^$/{p=1}p')
 # begin producing character-based nodes
-i=1
-gen="$gen
-    node0 "
+i=0
 while [ $i -lt $num ]; do
-    # awk command gets character from number
-    gen="$gen -> node$i"
+    # loop to the next node, or if we are on the last node, end the loop
+    if [ $i -eq $(expr $num - 1) ]; then
+        j=0
+    else
+        j=$(expr $i + 1)
+    fi
+    edge="node$i -> node$j"
+    # if the edge already exists, do not create it
+    grep -q "$edge" <<< "$gen"
+    if [ $? -eq 1 ]; then
+        gen="$gen
+    $edge;"
+    fi
     let i=i+1
 done
-#finish the loop
-gen="$gen -> node0;
+gen="$gen
 }"
 # generate, replace circo layout reference, make positions absolute
 gen=$(printf "$gen" | dot |

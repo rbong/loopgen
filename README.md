@@ -15,6 +15,7 @@ prefixes for the generated file (format information, labels)
 (blank)
 postfixes for the final file (extra connections, inputscale)
 ```
+Note that if an edge already exists in the prefix, loopgen won't remake it.
 
 # output
 graph with node0 to nodex
@@ -29,8 +30,9 @@ node2 [label="pull it"];
 node3 [label="flick it"];
 node4 [label="spin it"];
 node5 [label="throw it away"];
+node5 -> node0 [style=invis];
 
-node2 -> node5 [constraint=false,weight=0];
+node0 -> node3;
 // this keeps the program from running out of memory
 inputscale=72
 ```
